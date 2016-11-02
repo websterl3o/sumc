@@ -6,6 +6,12 @@
 	background-color: #fff;
 	width: 500px;
     position: absolute;
-    top: 20%;
+    border-radius: 5px;
     margin: 20%;
+}
+.form-horizontal{
+	padding: 30px;
+}
+input{
+	border-radius: 5px;
 }
