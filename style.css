@@ -1,0 +1,11 @@
+.background{
+	background-color: #eee;
+	text-align: center;
+}
+.login{
+	background-color: #fff;
+	width: 500px;
+    position: absolute;
+    top: 20%;
+    margin: 20%;
+}
