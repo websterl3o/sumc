@@ -1,7 +1,17 @@
 <?php
+	$link = mysqli_connect('localhost', 'admin', 'admin123','sumc');
+	if (!$link) {
+	    die('Não foi possível conectar: ' . mysql_error());
+	}
+	echo 'Conexão bem sucedida';
+	mysqli_close($link);
+
 	include_once "funcoes/classusuario.php";
 	include_once "funcoes/classmedico.php";
 	include_once "funcoes/classPaciente.php";
+	
+      
+    
 ?>
 
 <!DOCTYPE html>
