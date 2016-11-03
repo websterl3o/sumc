@@ -1,16 +1,18 @@
 .background{
-	background-color: #eee;
+	background-image: url('./img/matrixnoguys.jpg');
 	text-align: center;
 }
 .login{
 	background-color: #fff;
 	width: 500px;
     position: absolute;
+	top:20%;
+	left:32%;
     border-radius: 5px;
-    margin: 20%;
+    /* margin: 20%; */
 }
 .form-horizontal{
-	padding: 30px;
+	padding: 15px;
 }
 input{
 	border-radius: 5px;
