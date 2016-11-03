@@ -18,6 +18,7 @@
 		<script>
 			window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
 		</script>		
+		<link rel="stylesheet" type="text/css" href="./styleDash.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,7 +36,7 @@
 						<span class="icon-bar">
 						</span>
 					</button>
-					<a class="navbar-brand" href="#">SUMC</a>
+					<a class="navbar-brand" href="#"><img src="img/LogoBranca.png" alt="" height="36px"></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
