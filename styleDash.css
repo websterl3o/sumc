@@ -2,5 +2,11 @@ a.navbar-brand{
 	padding: 7px !important;
 }
 body.fomulario {
-    padding: 20px;
+	padding: 20px;
+}
+.disabled {
+	pointer-events: none;
+	cursor: default;
+	opacity: 0.6;
+	color: #333;
 }

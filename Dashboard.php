@@ -70,7 +70,7 @@
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li class="">
-							<a href="#">Informações</a>
+							<a href="#" class="disabled">Informações</a>
 						</li>
 						<li>
 							<a href="#">Informações sobre Usuários</a>
@@ -87,7 +87,7 @@
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li>
-							<a href="#">Cadastros</a>
+							<a href="#" class="disabled">Cadastros</a>
 						</li>
 						<li>
 							<a href="#">Cadastro de Usuários</a>
