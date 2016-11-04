@@ -1,10 +1,5 @@
 <?php
-	// $link = mysqli_connect('localhost', 'admin', 'admin123','sumc');
-	// if (!$link) {
-	//     die('Não foi possível conectar: ' . mysql_error());
-	// }
-	// echo 'Conexão bem sucedida';
-	// mysqli_close($link);
+
 	include_once "funcoes/classusuario.php";
 	include_once "funcoes/classmedico.php";
 	include_once "funcoes/classPaciente.php";    
@@ -23,17 +18,17 @@
 	<div>
 		<div class="login">
 		<img src="img/Logo.png" alt="" width="300px">
-		<form class="form-horizontal">
+		<form class="form-horizontal" method="post" action="./validaLogin.php" accept-charset="utf-8">
 			<div class="control-group">
 				<!-- <label class="control-label" for="inputEmail">E-mail</label> -->
 				<div class="controls">
-					<span>E-mail </span><input id="inputEmail" class="form-control" type="text" placeholder="Digite o seu e-mail..." />
+					<span>E-mail </span><input id="inputEmail" class="form-control" type="text" name="inputEmail" placeholder="Digite o seu e-mail..." />
 				</div>
 			</div>
 			<div class="control-group">
 				<!-- <label class="control-label" for="inputPassword">Senha</label> -->
 				<div class="controls">
-				<span>Senha </span><input id="inputPassword" class="form-control" type="password" placeholder="Digite a sua senha..." />
+				<span>Senha </span><input id="inputPassword" class="form-control" type="password" name="inputPassword" placeholder="Digite a sua senha..." />
 				</div>
 			</div>
 			<div class="control-group">

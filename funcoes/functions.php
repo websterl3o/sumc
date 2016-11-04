@@ -1,16 +1,16 @@
 <?php
+
 function verificaLoginSenha($login, $senha){
 	
-	$sql="SELECT nome 
+	$sql="SELECT * 
 		  FROM Usuario
 		  WHERE login = '$login' AND senha = '$senha'				
-	"
-	$result = mysql_query($sql);
+	";
+	$result = mysqli_query($sql);
 	
-	if(mysql_num_rows($result) !=0){
-		
+	if(mysqli_num_rows($result) !=0){		
 		$dados = $result->fetchRow();
-		$return $dados[0];
+		return 1;
 	}
 	else{
 		return 0;
