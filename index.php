@@ -18,7 +18,7 @@
 	<div>
 		<div class="login">
 		<img src="img/Logo.png" alt="" width="300px">
-		<form class="form-horizontal" method="post" action="./validaLogin.php" accept-charset="utf-8">
+		<form class="form-horizontal" method="post" action="validaLogin.php" accept-charset="utf-8">
 			<div class="control-group">
 				<!-- <label class="control-label" for="inputEmail">E-mail</label> -->
 				<div class="controls">

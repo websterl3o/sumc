@@ -1,14 +1,15 @@
 <?php
-
+global $link;
 function verificaLoginSenha($login, $senha){
 	
 	$sql="SELECT * 
-		  FROM Usuario
-		  WHERE login = '$login' AND senha = '$senha'				
+		  FROM usuario
+		  WHERE login = '$login' AND password = '$senha'				
 	";
-	$result = mysqli_query($sql);
-	
-	if(mysqli_num_rows($result) !=0){		
+	$result = mysqli_query($link, $sql);
+	// echo $sql;
+	// exit;
+	if(mysqli_num_rows($result) != 0){		
 		$dados = $result->fetchRow();
 		return 1;
 	}

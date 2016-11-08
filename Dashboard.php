@@ -14,9 +14,28 @@
 		<script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 		<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 		<script src="bootstrap/js/holder.min.js"></script>
-		<script src="bootstrap/js/jquery.min.js"></script>
+		<script src="bootstrap/js/funcoes.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
-			window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+		$( document ).ready(function() {
+			console.log( "Foi lido!" );
+			
+			$("#cadastra_usuario").click(function() {
+			$("#home").hide();
+				$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						url: './formularios/cadastra_usuario.php',
+						async: true,
+						success: function(response) {
+							alert("sucesso!");
+							$("#loader").val(response);
+							location.reload();
+						}
+					});
+			});
+			console.log( "Foi lido!2" );
+		});
 		</script>		
 		<link rel="stylesheet" type="text/css" href="./styleDash.css">
 	</head>
@@ -90,7 +109,7 @@
 							<a href="#" class="disabled">Cadastros</a>
 						</li>
 						<li>
-							<a href="#">Cadastro de Usuários</a>
+							<a id="cadastra_usuario" href="#">Cadastro de Usuários</a>
 						</li>
 						<li>
 							<a href="#">Cadastro de Pacientes</a>
@@ -104,7 +123,7 @@
 					</ul>
 					<!-- Fim MENU LATERAL -->
 				</div>
-				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div id="home" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">
 						Dashboard
 					</h1>
@@ -230,6 +249,8 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+				<div id="loader" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				</div>
 			</div>
 		</div>
