@@ -57,6 +57,9 @@ include_once 'funcoes/functions.php';
 						<li>
 							<a href="#">Ajuda</a>
 						</li>
+						<li>
+							<a href="limpalogin.php">Sair</a>
+						</li>
 					</ul>
 					<!-- <form class="navbar-form navbar-right">
 						<input type="text" class="form-control" placeholder="Procurar...">

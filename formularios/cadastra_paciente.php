@@ -42,7 +42,7 @@
 					<span class="icon-bar">
 					</span>
 					</button>
-					<a class="navbar-brand" href="#"><img src="../img/LogoBranca.png" alt="" height="36px"></a>
+					<a class="navbar-brand" href="../Dashboard.php"><img src="../img/LogoBranca.png" alt="" height="36px"></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -58,6 +58,9 @@
 						<li>
 							<a href="#">Ajuda</a>
 						</li>
+						<li>
+							<a href="../limpalogin.php">Sair</a>
+						</li>
 					</ul>
 					<!-- <form class="navbar-form navbar-right">
 							<input type="text" class="form-control" placeholder="Procurar...">
@@ -70,7 +73,7 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<!-- Inicio do MENU LATERAL -->
 					<ul class="nav nav-sidebar">
-						<li class="active">
+						<li >
 							<a href="../Dashboard.php">Home</a>
 						</li>
 					</ul>
@@ -98,7 +101,7 @@
 						<li>
 							<a id="cadastra_usuario" href="../formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
-						<li>
+						<li class="active">
 							<a id="cadastra_paciente" href="../formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
 						</li>
 						<li>
@@ -112,7 +115,7 @@
 				</div>
 				<div id="loader" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">
-					Cadastro de Usuário
+					Cadastro de Paciente
 					</h1>
 					<form action="../funcoes/cadastra_paciente_submit.php" method="get" accept-charset="utf-8">
 						<div class="form-group">
@@ -160,7 +163,7 @@
 							<input type="text" class="form-control" id="inputConvenio" aria-describedby="" placeholder="Convênio" name="inputConvenio">
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>						
-						<button type="submit" class="btn btn-primary">Criar Usuário</button>
+						<button type="submit" class="btn btn-primary">Adicionar Paciente</button>
 					</form>
 				</div>
 			</div>
