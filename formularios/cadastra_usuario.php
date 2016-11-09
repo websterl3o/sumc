@@ -136,13 +136,18 @@
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>Logadouro</label>
-							<input type="text" class="form-control" id="inputLogadouro" aria-describedby="" placeholder="Logadouro" name="inputLogadouro"> 
+							<label>Logradouro</label>
+							<input type="text" class="form-control" id="inputLogradouro" aria-describedby="" placeholder="Logradouro" name="inputLogradouro"> 
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
 							<label>Bairro</label>
 							<input type="text" class="form-control" id="inputBairro" aria-describedby="" placeholder="Bairro" name="inputBairro">
+							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<label>Cidade</label>
+							<input type="text" class="form-control" id="inputCidade" aria-describedby="" placeholder="Cidade" name="inputCidade">
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">

@@ -1,7 +1,5 @@
 <?php
 
-	// global $con = mysql_connect("academico.glaubercosta.com:3306","eduardo_lopes","130300001");
-	
 	class usuario{
 		
 		var $idUsuario;
@@ -19,24 +17,26 @@
 		var $tipoUsuario;
 		
 		// $dados - array contendo as variáveis para preenchimento da classe
-		function usuario($dados){
+		/*function usuario($dados){
 			
-			$this->nome 	 	= $dados[0];
-			$this->cpf 			= $dados[1];
-			$this->rg 	 		= $dados[2];
-			$this->logradouro 	= $dados[3];
-			$this->bairro 		= $dados[4];
-			$this->cidade 	 	= $dados[5];
-			$this->estado 	 	= $dados[6];
-			$this->sexo 		= $dados[7];
-			$this->login 	 	= $dados[8];
-			$this->password 	= $dados[9];
-			$this->tipoUsuario 	= $dados[10];
-			$this->email 	= $dados[11];
-		}
+			$nome 	 	= $dados[0];
+			$cpf 			= $dados[1];
+			$rg 	 		= $dados[2];
+			$logradouro 	= $dados[3];
+			$bairro 		= $dados[4];
+			$cidade 	 	= $dados[5];
+			$estado 	 	= $dados[6];
+			$sexo 		= $dados[7];
+			$login 	 	= $dados[8];
+			$password 	= $dados[9];
+			$tipoUsuario 	= $dados[10];
+			$email 		= $dados[11];
+		}*/
 		
 		function insereUsuario($dados){
 			
+			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');			
+			//print_r($dados);
 			$this->nome 	 	= $dados[0];
 			$this->cpf 			= $dados[1];
 			$this->rg 	 		= $dados[2];
@@ -48,25 +48,26 @@
 			$this->login 	 	= $dados[8];
 			$this->password 	= $dados[9];
 			$this->tipoUsuario 	= $dados[10];
-			$this->email 	= $dados[11];
+			$this->email 		= $dados[11];
 			
 			$sql = "INSERT INTO usuario
 					('nome','cpf','rg','logradouro','bairro','cidade','estado','sexo','login','password','tipoUsuario','email')
 					VALUES
-					('this->nome',
+					('$this->nome',
 					 '$this->cpf',
 					 '$this->rg',
-					 'this->logradouro',
+					 '$this->logradouro',
 					 '$this->bairro',
 					 '$this->cidade',
-					 'this->estado',
+					 '$this->estado',
 					 '$this->sexo',
 					 '$this->login',
-					 'this->password',
+					 '$this->password',
 					 '$this->tipoUsuario',
 					 '$this->email')";
-			
-			$result = mysql_query($sql);
+			//print_r($sql);die;
+			$result = $mysqli->query($sql);
+			//print_r($result);die;
 			return (1);	
 		}
 		
