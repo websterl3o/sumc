@@ -1,5 +1,5 @@
 <?php
-require_once './functions.php';
+
 
 global $link;
 function verificaLoginSenha($login, $senha,$link){

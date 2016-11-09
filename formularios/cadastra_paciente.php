@@ -1,6 +1,6 @@
 <?php
 	include_once "../funcoes/classusuario.php";
-	
+	include_once '../funcoes/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
