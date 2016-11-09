@@ -1,16 +1,17 @@
 <?php
 global $link;
-function verificaLoginSenha($login, $senha){
-	
+function verificaLoginSenha($login, $senha,$link){
+	$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
 	$sql="SELECT * 
 		  FROM usuario
 		  WHERE login = '$login' AND password = '$senha'				
 	";
-	$result = mysqli_query($link, $sql);
+	$result = $mysqli->query($sql);
 	// echo $sql;
 	// exit;
-	if(mysqli_num_rows($result) != 0){		
-		$dados = $result->fetchRow();
+	$verifica = mysqli_num_rows($result);
+	if($verifica != 0){		
+		$dados = $result->fetch_row();
 		return 1;
 	}
 	else{

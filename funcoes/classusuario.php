@@ -13,6 +13,7 @@
 		var $cidade;
 		var $estado;
 		var $sexo;
+		var $email;
 		var $login;
 		var $password;
 		var $tipoUsuario;
@@ -31,6 +32,7 @@
 			$this->login 	 	= $dados[8];
 			$this->password 	= $dados[9];
 			$this->tipoUsuario 	= $dados[10];
+			$this->email 	= $dados[11];
 		}
 		
 		function insereUsuario($dados){
@@ -46,9 +48,10 @@
 			$this->login 	 	= $dados[8];
 			$this->password 	= $dados[9];
 			$this->tipoUsuario 	= $dados[10];
+			$this->email 	= $dados[11];
 			
 			$sql = "INSERT INTO usuario
-					('nome','cpf','rg','logradouro','bairro','cidade','estado','sexo','login','password','tipoUsuario')
+					('nome','cpf','rg','logradouro','bairro','cidade','estado','sexo','login','password','tipoUsuario','email')
 					VALUES
 					('this->nome',
 					 '$this->cpf',
@@ -60,7 +63,8 @@
 					 '$this->sexo',
 					 '$this->login',
 					 'this->password',
-					 '$this->tipoUsuario')";
+					 '$this->tipoUsuario',
+					 '$this->email')";
 			
 			$result = mysql_query($sql);
 			return (1);	

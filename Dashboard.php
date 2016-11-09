@@ -18,23 +18,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
 		$( document ).ready(function() {
-			console.log( "Foi lido!" );
-			
-			$("#cadastra_usuario").click(function() {
-			$("#home").hide();
-				$.ajax({
-						type: 'POST',
-						dataType: 'json',
-						url: './formularios/cadastra_usuario.php',
-						async: true,
-						success: function(response) {
-							alert("sucesso!");
-							$("#loader").val(response);
-							location.reload();
-						}
-					});
-			});
-			console.log( "Foi lido!2" );
 		});
 		</script>		
 		<link rel="stylesheet" type="text/css" href="./styleDash.css">
@@ -109,7 +92,7 @@
 							<a href="#" class="disabled">Cadastros</a>
 						</li>
 						<li>
-							<a id="cadastra_usuario" href="#">Cadastro de Usuários</a>
+							<a id="cadastra_usuario" href="formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
 						<li>
 							<a href="#">Cadastro de Pacientes</a>
