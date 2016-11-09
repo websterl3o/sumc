@@ -95,7 +95,7 @@
 							<a id="cadastra_usuario" href="formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
 						<li>
-							<a href="#">Cadastro de Pacientes</a>
+							<a id="cadastra_paciente" href="formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
 						</li>
 						<li>
 							<a href="#">Cadastro de Médicos</a>

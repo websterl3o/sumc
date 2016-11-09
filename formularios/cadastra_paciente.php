@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="../img/icone-SUMC2.png">
 		<title>
-		Cadastro de Usuário
+		Cadastra Paciente
 		</title>
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../bootstrap/js/bootstrap.min.js">
@@ -100,7 +100,7 @@
 						</li>
 						<li>
 							<a id="cadastra_paciente" href="../formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
-						</li>	
+						</li>
 						<li>
 							<a href="#">Cadastro de Médicos</a>
 						</li>
@@ -114,16 +114,11 @@
 					<h1 class="page-header">
 					Cadastro de Usuário
 					</h1>
-					<form action="../funcoes/cadastra_usuario_submit.php" method="post" accept-charset="utf-8">
+					<form action="../funcoes/cadastra_paciente_submit.php" method="get" accept-charset="utf-8">
 						<div class="form-group">
 							<label>Nome</label>
 							<input type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" placeholder="Nome" name="inputNome">
 							<small id="nomeHelp" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>
-						<div class="form-group">
-							<label>Endereço de Email</label>
-							<input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Endereço de Email" name="inputEmail">
-							<small id="emailHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
 							<label>CPF</label>
@@ -161,25 +156,10 @@
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>						
 						<div class="form-group">
-							<label>Nome do Login</label>
-							<input type="text" class="form-control" id="inputUsuario" aria-describedby="" placeholder="Nome do Usuário" name="inputUsuario">
+							<label>Convênio</label>
+							<input type="text" class="form-control" id="inputConvenio" aria-describedby="" placeholder="Convênio" name="inputConvenio">
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>
-						<div class="form-group">
-							<label for="inputPassword">Senha</label>
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="inputPassword">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>
-						<div class="form-group">
-							<label for="selectNivel">Nível de Acesso</label>
-							<select class="form-control" id="selectNivel" name="selectNivel">
-								<option> </option>
-								<option>Funcionário</option>
-								<option>Medico</option>
-								<option>Administrador</option>
-							</select>
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>
+						</div>						
 						<button type="submit" class="btn btn-primary">Criar Usuário</button>
 					</form>
 				</div>

@@ -18,4 +18,9 @@ function verificaLoginSenha($login, $senha,$link){
 		return 0;
 	}
 }
+function pr($str, $align = '') {
+    echo"<pre" . ( (!empty($align) ) ? " align='$align'" : "" ) . ">";
+    print_r($str);
+    echo"</pre>";
+}
 ?>
