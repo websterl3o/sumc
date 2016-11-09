@@ -1,4 +1,5 @@
 <?php
+include_once "functions.php";
 class Item_ficha_medica{
 	var $idItem_ficha_medica;
 	var $dataDiagnostico;

@@ -1,5 +1,5 @@
 <?php
-
+include_once "functions.php";
 	// global $con = mysql_connect("academico.glaubercosta.com:3306","eduardo_lopes","130300001");
 	
 	class medico{

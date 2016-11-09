@@ -1,3 +1,6 @@
+<?php
+include_once 'funcoes/functions.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -53,6 +56,9 @@
 						</li>
 						<li>
 							<a href="#">Ajuda</a>
+						</li>
+						<li>
+							<a href="limpalogin.php">Sair</a>
 						</li>
 					</ul>
 					<!-- <form class="navbar-form navbar-right">

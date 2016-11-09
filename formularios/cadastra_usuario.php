@@ -1,6 +1,6 @@
 <?php
 	include_once "../funcoes/classusuario.php";
-	
+	include_once '../funcoes/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@
 					<span class="icon-bar">
 					</span>
 					</button>
-					<a class="navbar-brand" href="#"><img src="../img/LogoBranca.png" alt="" height="36px"></a>
+					<a class="navbar-brand" href="../Dashboard.php"><img src="../img/LogoBranca.png" alt="" height="36px"></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -58,6 +58,9 @@
 						<li>
 							<a href="#">Ajuda</a>
 						</li>
+						<li>
+							<a href="../limpalogin.php">Sair</a>
+						</li>
 					</ul>
 					<!-- <form class="navbar-form navbar-right">
 							<input type="text" class="form-control" placeholder="Procurar...">
@@ -70,7 +73,7 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<!-- Inicio do MENU LATERAL -->
 					<ul class="nav nav-sidebar">
-						<li class="active">
+						<li >
 							<a href="../Dashboard.php">Home</a>
 						</li>
 					</ul>
@@ -95,7 +98,7 @@
 						<li>
 							<a href="#" class="disabled">Cadastros</a>
 						</li>
-						<li>
+						<li class="active">
 							<a id="cadastra_usuario" href="../formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
 						<li>

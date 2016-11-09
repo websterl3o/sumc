@@ -1,4 +1,5 @@
 <?php
+include_once "functions.php";
 class Item_ficha_vacina{
 	var $idItem_ficha_vacina;
 	var $data_vacina;

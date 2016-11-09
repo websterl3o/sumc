@@ -1,4 +1,6 @@
 <?php
+
+
 global $link;
 function verificaLoginSenha($login, $senha,$link){
 	$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
