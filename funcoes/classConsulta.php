@@ -15,7 +15,7 @@ include_once "functions.php";
 		function consulta($dados){
 			
 			$this->idPaciente 	 		= $dados[0];
-			$this->idMedico 	 		= $dados[1];
+			$this->$idMedico 	 		= $dados[1];
 			$this->valida 	 			= $dados[2];
 			$this->peso 	 			= $dados[3];
 			$this->altura 	 			= $dados[4];
@@ -24,15 +24,15 @@ include_once "functions.php";
 		function insereConsulta($dados){
 			
 			$this->idPaciente 	 		= $dados[0];
-			$this->idMedico 	 		= $dados[1];
+			$this->$idMedico 	 		= $dados[1];
 			$this->valida 		 		= $dados[2];
 			$this->peso 		 		= $dados[3];
 			$this->altura 		 		= $dados[4];
 			
 			$sql = "INSERT INTO consulta
-					('idPaciente','idMedico','valida','peso','altura')
+					('idPaciente','$idMedico','valida','peso','altura')
 					VALUES
-					('this->idPaciente','$this->idMedico','$this->valida','$this->peso','$this->altura')";
+					('this->idPaciente','$this->$idMedico','$this->valida','$this->peso','$this->altura')";
 			
 			$result = mysql_query($sql);
 			return (1);	
@@ -73,7 +73,7 @@ include_once "functions.php";
 			$peso			  			= $dados[3];
 			$altura			  			= $dados[4];
 			
-			$sql ="UPDATE medico SET ('idPaciente','idMedico','valida','peso','altura') VALUES ('$idPaciente', '$idMedico', '$valida','$peso','$altura') WHERE $idConsulta";
+			$sql ="UPDATE Médico SET ('idPaciente','idMedico','valida','peso','altura') VALUES ('$idPaciente', '$idMedico', '$valida','$peso','$altura') WHERE $idConsulta";
 			
 			$result = mysql_query($sql);
 			

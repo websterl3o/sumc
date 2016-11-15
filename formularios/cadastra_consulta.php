@@ -1,6 +1,11 @@
 <?php
 	include_once "../funcoes/classusuario.php";
 	include_once '../funcoes/functions.php';
+	include_once '../funcoes/classusuario.php';
+
+	$teste = new usuario();
+	$oi = $teste->todosUsuarios();
+	pr($oi);die;
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="../img/icone-SUMC2.png">
 		<title>
-			Cadastra Paciente
+		Cadastro de Usuário
 		</title>
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../bootstrap/js/bootstrap.min.js">
@@ -21,7 +26,7 @@
 		<script src="../bootstrap/js/funcoes.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
-			$( document ).ready(function() {
+		$( document ).ready(function() {
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="../styleDash.css">
@@ -98,16 +103,16 @@
 						<li>
 							<a href="#" class="disabled">Cadastros</a>
 						</li>
-						<li>
+						<li >
 							<a id="cadastra_usuario" href="../formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
-						<li class="active">
+						<li>
 							<a id="cadastra_paciente" href="../formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
-						</li>
+						</li>	
 						<li>
 							<a href="../formularios/cadastra_medico.php">Cadastro de Médicos</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="../formularios/cadastra_consulta.php">Cadastro de Consulta</a>
 						</li>
 					</ul>
@@ -115,55 +120,53 @@
 				</div>
 				<div id="loader" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">
-					Cadastro de Paciente
+					Cadastro de Consulta
 					</h1>
-					<form action="../funcoes/cadastra_paciente_submit.php" method="get" accept-charset="utf-8">
+					<form action="../funcoes/cadastra_consulta_submit.php" method="post" accept-charset="utf-8">						
 						<div class="form-group">
-							<label>Nome</label>
-							<input type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" placeholder="Nome" name="inputNome">
+							<label>Nome do Paciente</label>
+							<input type="text" class="form-control" id="inputpaciente" aria-describedby="nomeHelp" placeholder="Paciente" name="inputpaciente">
 							<small id="nomeHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>CPF</label>
-							<input type="text" class="form-control" id="inputCPF" aria-describedby="" placeholder="CPF" name="inputCPF">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+							<label>Nome do Médico</label>
+							<input type="text" class="form-control" id="inputmedico" aria-describedby="medicoHelp" placeholder="Médico" name="inputmedico">
+							<small id="medicoHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>RG</label>
-							<input type="text" class="form-control" id="inputRG" aria-describedby="" placeholder="RG" name="inputRG">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+							<label>Tipo Sanguíneo</label>
+							<input type="text" class="form-control" id="inputsanguineo" aria-describedby="sanguineoHelp" placeholder="Sanguíneo" name="inputsanguineo">
+							<small id="sanguineoHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>Logadouro</label>
-							<input type="text" class="form-control" id="inputLogadouro" aria-describedby="" placeholder="Logadouro" name="inputLogadouro"> 
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+							<label>Peso</label>
+							<input type="text" class="form-control" id="inputPeso" aria-describedby="PesoHelp" placeholder="Peso" name="inputPeso">
+							<small id="sanguineoHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>Bairro</label>
-							<input type="text" class="form-control" id="inputBairro" aria-describedby="" placeholder="Bairro" name="inputBairro">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+							<label>Altura</label>
+							<input type="text" class="form-control" id="inputAltura" aria-describedby="AlturaHelp" placeholder="Altura" name="inputAltura">
+							<small id="AlturaHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
-						<div class="form-group">
-							<label>Estado</label>
-							<input type="text" class="form-control" id="inputEstado" aria-describedby="" placeholder="Estado" name="inputEstado">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						
+						<div class="medico" style="display: none">
+							<div class="form-group">
+								<label>Data</label>
+								<input type="date" class="form-control" id="inputData" aria-describedby="DataHelp" placeholder="Data" name="inputData">
+								<small id="DataHelp" class="form-text text-muted">*Campo Obrigatório</small>
+							</div>
+							<div class="form-group">
+								<label>Diagnostico</label>
+								<input type="date" class="form-control" id="inputDiagnostico" aria-describedby="DiagnosticoHelp" placeholder="Diagnostico" name="inputDiagnostico">
+								<small id="DiagnosticoHelp" class="form-text text-muted">*Campo Obrigatório</small>
+							</div>
+							<div class="form-group">
+								<label>Detalhes</label>
+								<input type="date" class="form-control" id="inputDetalhes" aria-describedby="DetalhesHelp" placeholder="Detalhes" name="inputDetalhes">
+								<small id="DetalhesHelp" class="form-text text-muted">*Campo Obrigatório</small>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="selectSexo">Sexo</label>
-							<select class="form-control" id="selectSexo" name="selectSexo">
-								<option> </option>
-								<option>M</option>
-								<option>F</option>
-								<option>Outro</option>
-							</select>
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>						
-						<div class="form-group">
-							<label>Convênio</label>
-							<input type="text" class="form-control" id="inputConvenio" aria-describedby="" placeholder="Convênio" name="inputConvenio">
-							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>						
-						<button type="submit" class="btn btn-primary">Adicionar Paciente</button>
+						<button type="submit" class="btn btn-primary">Criar Usuário</button>
 					</form>
 				</div>
 			</div>

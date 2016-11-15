@@ -1,7 +1,7 @@
 <?php
 
 	include_once "funcoes/classusuario.php";
-	include_once "funcoes/classmedico.php";
+	include_once "funcoes/classMédico.php";
 	include_once "funcoes/classPaciente.php";    
 ?>
 

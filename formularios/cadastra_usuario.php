@@ -183,7 +183,7 @@
 							<select class="form-control" id="selectNivel" name="selectNivel">
 								<option> </option>
 								<option>Funcionário</option>
-								<option>Medico</option>
+								<option>Médico</option>
 								<option>Administrador</option>
 							</select>
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>

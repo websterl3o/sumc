@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="../img/icone-SUMC2.png">
 		<title>
-			Cadastra Paciente
+			Cadastra Medico
 		</title>
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="../bootstrap/js/bootstrap.min.js">
@@ -101,10 +101,10 @@
 						<li>
 							<a id="cadastra_usuario" href="../formularios/cadastra_usuario.php">Cadastro de Usuários</a>
 						</li>
-						<li class="active">
+						<li >
 							<a id="cadastra_paciente" href="../formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="../formularios/cadastra_medico.php">Cadastro de Médicos</a>
 						</li>
 						<li>
@@ -115,13 +115,18 @@
 				</div>
 				<div id="loader" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">
-					Cadastro de Paciente
+					Cadastro de Médico
 					</h1>
-					<form action="../funcoes/cadastra_paciente_submit.php" method="get" accept-charset="utf-8">
+					<form action="../funcoes/cadastra_medico_submit.php" method="post" accept-charset="utf-8">
 						<div class="form-group">
 							<label>Nome</label>
 							<input type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" placeholder="Nome" name="inputNome">
 							<small id="nomeHelp" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<label>Endereço de Email</label>
+							<input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Endereço de Email" name="inputEmail">
+							<small id="emailHelp" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
 							<label>CPF</label>
@@ -134,13 +139,28 @@
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
-							<label>Logadouro</label>
-							<input type="text" class="form-control" id="inputLogadouro" aria-describedby="" placeholder="Logadouro" name="inputLogadouro"> 
+							<label>Certificado de Registro Médico</label>
+							<input type="text" class="form-control" id="inputCRM" aria-describedby="" placeholder="CRM" name="inputCRM">
+							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<label>Especialidade <b>(Área de atuação Médica)</b></label>
+							<input type="text" class="form-control" id="inputEspecialidadeM" aria-describedby="" placeholder="EspecialidadeM" name="inputEspecialidadeM">
+							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<label>Logradouro</label>
+							<input type="text" class="form-control" id="inputLogradouro" aria-describedby="" placeholder="Logradouro" name="inputLogradouro"> 
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
 							<label>Bairro</label>
 							<input type="text" class="form-control" id="inputBairro" aria-describedby="" placeholder="Bairro" name="inputBairro">
+							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<label>Cidade</label>
+							<input type="text" class="form-control" id="inputCidade" aria-describedby="" placeholder="Cidade" name="inputCidade">
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>
 						<div class="form-group">
@@ -159,11 +179,19 @@
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
 						</div>						
 						<div class="form-group">
-							<label>Convênio</label>
-							<input type="text" class="form-control" id="inputConvenio" aria-describedby="" placeholder="Convênio" name="inputConvenio">
+							<label>Nome do Login</label>
+							<input type="text" class="form-control" id="inputUsuario" aria-describedby="" placeholder="Nome do Usuário" name="inputUsuario">
 							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
-						</div>						
-						<button type="submit" class="btn btn-primary">Adicionar Paciente</button>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword">Senha</label>
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="inputPassword">
+							<small id="" class="form-text text-muted">*Campo Obrigatório</small>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="selectNivel" name="selectNivel" value="Médico">
+						</div>
+						<button type="submit" class="btn btn-primary">Adicionar Usuário</button>
 					</form>
 				</div>
 			</div>
