@@ -1,6 +1,11 @@
 <?php
 	include_once "../funcoes/classusuario.php";
 	include_once '../funcoes/functions.php';
+	include_once '../funcoes/classusuario.php';
+
+	$teste = new usuario();
+	$oi = $teste->todosUsuarios();
+	pr($oi);die;
 ?>
 <!DOCTYPE html>
 <html>

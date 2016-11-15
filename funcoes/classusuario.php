@@ -32,7 +32,20 @@
 			$tipoUsuario 	= $dados[10];
 			$email 		= $dados[11];
 		}*/
-		
+		function todosUsuarios(){
+			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
+			
+			$sql="SELECT idUsuario FROM usuario WHERE 1";
+			
+			$result = $mysqli->query($sql);
+			pr($result);
+			while ($row = $result->fetch_array()) {
+				
+				$vet[] = new usuario();
+				$vet[] = $this->pesquisaUsuario($row[0]);
+			}
+			return $vet;
+		}
 		function insereUsuario($dados){
 			
 			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
@@ -99,13 +112,13 @@
 		}
 		
 		function pesquisaUsuario($idUsuario){
-			
+			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
 			$sql ="SELECT * FROM usuario WHERE idUsuario = $idUsuario";
 			
-			$result = mysql_query($sql);
+			$result = $mysqli->query($sql);
 			
-			if(mysql_num_rows($result) !=0){
-				$dados = $result->fetchRow();
+			if(mysqli_num_rows($result) !=0){
+				$dados = $result->fetch_array();
 				$this->idUsuario	= $dados[0];
 				$this->nome 	 	= $dados[1];
 				$this->cpf 			= $dados[2];
@@ -146,5 +159,7 @@
 				return (1);
 			}
 		}
+
+			
 	}
 ?>
