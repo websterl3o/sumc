@@ -35,7 +35,7 @@
 		
 		function insereUsuario($dados){
 			
-			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');			
+			$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
 			//print_r($dados);
 			$this->nome 	 	= $dados[0];
 			$this->cpf 			= $dados[1];
@@ -45,15 +45,28 @@
 			$this->cidade 	 	= $dados[5];
 			$this->estado 	 	= $dados[6];
 			$this->sexo 		= $dados[7];
+			if($dados[7] == "Outro"){
+				$this->sexo = '';
+			}
 			$this->login 	 	= $dados[8];
 			$this->password 	= $dados[9];
-			$this->tipoUsuario 	= $dados[10];
 			$this->email 		= $dados[11];
+			if($dados[10] == 'Funcionário'){
+				$this->tipoUsuario 	= 3;
+			}
+			elseif($dados[10] == 'Medico'){
+				$this->tipoUsuario 	= 2;
+			}
+			elseif($dados[10] == 'Administrador'){
+				$this->tipoUsuario 	= 1;
+			}
 			
 			$sql = "INSERT INTO usuario
-					('nome','cpf','rg','logradouro','bairro','cidade','estado','sexo','login','password','tipoUsuario','email')
+					(idUsuario, nome, cpf, rg, logradouro, bairro, cidade, estado, sexo, email, login, password, tipoUsuario)
 					VALUES
-					('$this->nome',
+					(
+					 NULL,
+					 '$this->nome',
 					 '$this->cpf',
 					 '$this->rg',
 					 '$this->logradouro',
@@ -61,14 +74,20 @@
 					 '$this->cidade',
 					 '$this->estado',
 					 '$this->sexo',
+					 '$this->email',
 					 '$this->login',
 					 '$this->password',
-					 '$this->tipoUsuario',
-					 '$this->email')";
-			//print_r($sql);die;
+					 '$this->tipoUsuario'
+					 )";
+			// print_r($sql);die;
 			$result = $mysqli->query($sql);
-			//print_r($result);die;
-			return (1);	
+			// print_r($result);die;
+			if($result != 0){		
+				return 1;
+			}
+			else{
+				return 0;
+			}
 		}
 		
 		function deletaUsuario($idUsuario){

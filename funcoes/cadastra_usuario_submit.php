@@ -19,20 +19,18 @@ $dados[9] = $inputPassword;
 $dados[10] = $selectNivel;
 $dados[11] = $inputEmail; 
 
+
 if($usuario->insereUsuario($dados)){
-?>
-<script>
-alert(Cadastro realizado com sucesso !);
-</script>
-<?php
-header('location:../Dashboard.php');	
+	$info = 'Cadastro realizado com sucesso !';
+	header('location:../Dashboard.php?valida='.$info);	
 }
 else{
 ?>
-<script>
-alert(Cadastro não realizado, tente novamente !);
-</script>
-<?php
-header('location:../Dashboard.php');
+	<script>
+		alert('Cadastro não realizado, tente novamente !');
+	</script>
+	<?php
+	$info = 'Cadastro não realizado, tente novamente !';
+	header('location:../Dashboard.php?valida='.$info);
 }
 ?>

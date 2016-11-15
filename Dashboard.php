@@ -1,5 +1,10 @@
 <?php
 include_once 'funcoes/functions.php';
+// pr($_GET);
+if(!isset($_GET['valida'])){
+	$_GET = null;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +46,7 @@ include_once 'funcoes/functions.php';
 						<span class="icon-bar">
 						</span>
 					</button>
-					<a class="navbar-brand" href="#"><img src="img/LogoBranca.png" alt="" height="36px"></a>
+					<a class="navbar-brand" href="Dashboard.php"><img src="img/LogoBranca.png" alt="" height="36px"></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -73,7 +78,7 @@ include_once 'funcoes/functions.php';
 					<!-- Inicio do MENU LATERAL -->
 					<ul class="nav nav-sidebar">
 						<li class="active">
-							<a href="#">Home</a>
+							<a href="Dashboard.php">Home</a>
 						</li>
 					</ul>
 					<ul class="nav nav-sidebar">
@@ -113,45 +118,63 @@ include_once 'funcoes/functions.php';
 					<!-- Fim MENU LATERAL -->
 				</div>
 				<div id="home" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					<?php
+						if($_GET != '' || $_GET != NULL){
+							if($_GET['valida'] == 'Cadastro realizado com sucesso !'){
+								echo '
+								<div class="alert alert-info" role="alert" style="text-align:center;font-weight:bold;">
+									'.$_GET["valida"].'
+								</div>';
+							}
+							else{
+							echo '<div class="alert alert-danger" role="alert" style="text-align:center;font-weight:bold;">
+									'.$_GET["valida"].'
+								</div>';
+							}
+						}
+					?>
 					<h1 class="page-header">
 						Dashboard
 					</h1>
 					<div class="row placeholders">
 						<div class="col-xs-6 col-sm-3 placeholder">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+							<img src="./img/user-user-[Converted].png"
 							width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 							<h4>
-								Label
+								Usuários
 							</h4>
 							<span class="text-muted">
 								Something else
 							</span>
 						</div>
+
 						<div class="col-xs-6 col-sm-3 placeholder">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+							<img src="./img/user-doc-female-[Converted].png"
 							width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 							<h4>
-								Label
+								Medicos
 							</h4>
 							<span class="text-muted">
 								Something else
 							</span>
 						</div>
+
 						<div class="col-xs-6 col-sm-3 placeholder">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+							<img src="./img/user-paciente-[Converted].png"
 							width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 							<h4>
-								Label
+								Pacientes
 							</h4>
 							<span class="text-muted">
 								Something else
 							</span>
 						</div>
+						
 						<div class="col-xs-6 col-sm-3 placeholder">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+							<img src="./img/76170ff571088c191d2cf8e74e911e11-[Converted].png"
 							width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 							<h4>
-								Label
+								Consultas
 							</h4>
 							<span class="text-muted">
 								Something else

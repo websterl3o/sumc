@@ -6,7 +6,7 @@ function verificaLoginSenha($login, $senha,$link){
 	$mysqli = new mysqli('localhost', 'admin', 'admin123','sumc');
 	$sql="SELECT * 
 		  FROM usuario
-		  WHERE login = '$login' AND password = '$senha'				
+		  WHERE login = '$login' AND password = MD5('$senha')				
 	";
 	$result = $mysqli->query($sql);
 	// echo $sql;
