@@ -109,10 +109,10 @@ if(!isset($_GET['valida'])){
 							<a id="cadastra_paciente" href="formularios/cadastra_paciente.php">Cadastro de Pacientes</a>
 						</li>
 						<li>
-							<a href="#">Cadastro de Médicos</a>
+							<a href="formularios/cadastra_medico.php">Cadastro de Médicos</a>
 						</li>
 						<li>
-							<a href="#">Cadastro de Consulta</a>
+							<a href="formularios/cadastra_consulta.php">Cadastro de Consulta</a>
 						</li>
 					</ul>
 					<!-- Fim MENU LATERAL -->

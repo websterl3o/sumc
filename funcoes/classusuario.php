@@ -54,7 +54,7 @@
 			if($dados[10] == 'Funcionário'){
 				$this->tipoUsuario 	= 3;
 			}
-			elseif($dados[10] == 'Medico'){
+			elseif($dados[10] == 'Médico'){
 				$this->tipoUsuario 	= 2;
 			}
 			elseif($dados[10] == 'Administrador'){

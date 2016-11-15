@@ -31,5 +31,5 @@ else{
 // exit;
 
 // INSERT INTO `usuario` (`idUsuario`, `nome`, `cpf`, `rg`, `logadouro`, `bairro`, `cidade`, `estado`, `sexo`, `login`, `password`, `tipoUsuario`) VALUES (NULL, 'admin', '11500216674', 'mg18145148', 'asdsd', 'dasda', 'dsadsa', 'dsadsa', 'M', 'admin', 'admin123', '1');
-// INSERT INTO `tipo_usuario` (`idTipo_usuario`, `tipo_acesso`) VALUES ('1', 'ADMIN');INSERT INTO `tipo_usuario` (`idTipo_usuario`, `tipo_acesso`) VALUES ('2', 'MEDICO'), ('3', 'FUNCIONARIO');
+// INSERT INTO `tipo_usuario` (`idTipo_usuario`, `tipo_acesso`) VALUES ('1', 'ADMIN');INSERT INTO `tipo_usuario` (`idTipo_usuario`, `tipo_acesso`) VALUES ('2', 'Médico'), ('3', 'FUNCIONARIO');
 ?>
