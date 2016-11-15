@@ -81,6 +81,10 @@
 					 )";
 			// print_r($sql);die;
 			$result = $mysqli->query($sql);
+			$sql="SELECT MAX(idUsuario) FROM usuario WHERE 1";
+			$result = $mysqli->query($sql);
+			$dados = $result->fetchRow();
+			$this->idUsuario = $dados[0];
 			// print_r($result);die;
 			if($result != 0){		
 				return 1;
