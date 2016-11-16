@@ -1,6 +1,6 @@
 <?php
 include_once "functions.php";
-class Paciente{
+class paciente{
 	var $idPaciente;
 	var $nome;
 	var $cpf;
@@ -15,7 +15,7 @@ class Paciente{
 	var $convenio;
 
 		# $dados - array contendo as variáveis para preenchimento da classe
-		function Paciente($dados){
+		/*function paciente($dados){
 			
 			$this->idPaciente       = $dados[0];
 			$this->nome             = $dados[1];
@@ -30,10 +30,10 @@ class Paciente{
 			$this->tipoSanguineo	= $dados[10];
 			$this->convenio         = $dados[11];
 
-		}
+		}*/
 		function inserePaciente($dados){
 			$sql = "
-			INSERT INTO Paciente ('nome', 'cpf', 'RG', 'logadouro', 'bairro', 'cidade', 'estado', 'sexo', 'ultimaConsulta', 'tipoSanguineo','convenio') VALUES (
+			INSERT INTO paciente ('nome', 'cpf', 'RG', 'logadouro', 'bairro', 'cidade', 'estado', 'sexo', 'ultimaConsulta', 'tipoSanguineo','convenio') VALUES (
 			'$dados->idPaciente    ',
 			'$dados->nome          ',
 			'$dados->cpf           ',
@@ -54,7 +54,7 @@ class Paciente{
 		function alteraPaciente($idPaciente){
 			
 			$sql = "
-			UPDATE Paciente SET ('nome', 'cpf', 'RG', 'logadouro', 'bairro', 'cidade', 'estado', 'sexo', 'ultimaConsulta', 'tipoSanguineo','convenio') VALUES (
+			UPDATE paciente SET ('nome', 'cpf', 'RG', 'logadouro', 'bairro', 'cidade', 'estado', 'sexo', 'ultimaConsulta', 'tipoSanguineo','convenio') VALUES (
 			'$dados->nome          ',
 			'$dados->cpf           ',
 			'$dados->RG            ',
@@ -76,19 +76,20 @@ class Paciente{
 
 		}
 		function deletaPaciente($idPaciente){
-			$sql = "DELETE FROM Paciente WHERE idPaciente = '$idPaciente'";
+			$sql = "DELETE FROM paciente WHERE idPaciente = '$idPaciente'";
 			$result = mysql_query($sql);
 			return (1);
 		}
+		
 		function pesquisaPaciente($idPaciente){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
+			$sql ="SELECT * FROM paciente WHERE idPaciente = $idPaciente";
 			
-			$sql ="SELECT * FROM Paciente WHERE idPaciente = $idPaciente";
+			$result = $mysqli->query($sql);
 			
-			$result = mysql_query($sql);
-			
-			if(mysql_num_rows($result) !=0){
+			if(mysqli_num_rows($result) !=0){
 				
-				$dados = $result->fetchRow();
+				$dados = $result->fetch_array();
 				$resultado['idPaciente']		=$dados[0];
 				$resultado['nome']				=$dados[1];
 				$resultado['cpf']				=$dados[2];
@@ -104,6 +105,22 @@ class Paciente{
 				
 				return($resultado);	
 			}
+		}
+		
+		function todosPacientes(){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
+			
+			$sql="SELECT idPaciente FROM paciente WHERE 1";
+			
+			$result = $mysqli->query($sql);
+			$i=0;
+			while ($row = $result->fetch_array()) {
+				$paciente = new paciente();
+				$paciente->pesquisaPaciente($row['idPaciente']);
+				$vet[$i] = $paciente;
+				$i++;
+			}
+			return $vet;
 		}
 }  
 ?>

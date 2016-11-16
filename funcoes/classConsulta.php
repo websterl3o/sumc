@@ -12,48 +12,51 @@ include_once "functions.php";
 		var $altura;
 		
 		// $dados - array contendo as variáveis para preenchimento da classe
-		function consulta($dados){
+		/*function consulta($dados){
 			
 			$this->idPaciente 	 		= $dados[0];
-			$this->$idMedico 	 		= $dados[1];
+			$this->idMedico 	 		= $dados[1];
 			$this->valida 	 			= $dados[2];
 			$this->peso 	 			= $dados[3];
 			$this->altura 	 			= $dados[4];
-		}
+		}*/
 		
 		function insereConsulta($dados){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
 			
 			$this->idPaciente 	 		= $dados[0];
-			$this->$idMedico 	 		= $dados[1];
+			$this->idMedico 	 		= $dados[1];
 			$this->valida 		 		= $dados[2];
 			$this->peso 		 		= $dados[3];
 			$this->altura 		 		= $dados[4];
 			
 			$sql = "INSERT INTO consulta
-					('idPaciente','$idMedico','valida','peso','altura')
+					('idPaciente','idMedico','valida','peso','altura')
 					VALUES
-					('this->idPaciente','$this->$idMedico','$this->valida','$this->peso','$this->altura')";
+					('$this->idPaciente','$this->idMedico','$this->valida','$this->peso','$this->altura')";
 			
-			$result = mysql_query($sql);
+			$result = $mysqli->query($sql);
 			return (1);	
 		}
 		
 		function deletaConsulta($idConsulta){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
 			
 			$sql ="DELETE FROM consulta WHERE idConsulta = $idConsulta";
 			
-			$result = mysql_query($sql);
+			$result = $mysqli->query($sql);
 			return (1);
 		}
 		
 		function pesquisaConsulta($idConsulta){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
 			
 			$sql ="SELECT * FROM consulta WHERE idConsulta = $idConsulta";
 			
-			$result = mysql_query($sql);
+			$result = $mysqli->query($sql);
 			
-			if(mysql_num_rows($result) !=0){
-				$dados = $result->fetchRow();
+			if(mysqli_num_rows($result) !=0){
+				$dados = $result->fetch_array();
 				$this->idConsulta   			  	= $dados[0];
 				$this->idPaciente		  			= $dados[1];
 				$this->idMedico		  				= $dados[2];
@@ -66,6 +69,7 @@ include_once "functions.php";
 		}
 		
 		function alteraConsulta($idConsulta, $dados){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
 			
 			$idPaciente		  			= $dados[0];
 			$idMedico		  			= $dados[1];
@@ -73,11 +77,11 @@ include_once "functions.php";
 			$peso			  			= $dados[3];
 			$altura			  			= $dados[4];
 			
-			$sql ="UPDATE Médico SET ('idPaciente','idMedico','valida','peso','altura') VALUES ('$idPaciente', '$idMedico', '$valida','$peso','$altura') WHERE $idConsulta";
+			$sql ="UPDATE consulta SET ('idPaciente','idMedico','valida','peso','altura') VALUES ('$idPaciente', '$idMedico', '$valida','$peso','$altura') WHERE idConsulta = $idConsulta";
 			
-			$result = mysql_query($sql);
+			$result = $mysqli->query($sql);
 			
-			if(mysql_num_rows($result) !=0){
+			if(mysqli_num_rows($result) !=0){
 				return (1);
 			}
 		}

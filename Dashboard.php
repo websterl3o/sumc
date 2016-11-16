@@ -1,5 +1,7 @@
 <?php
 include_once 'funcoes/functions.php';
+include_once 'funcoes/classPaciente.php';
+include_once 'funcoes/classmedico.php';
 // pr($_GET);
 if(!isset($_GET['valida'])){
 	$_GET = null;
@@ -132,6 +134,9 @@ if(!isset($_GET['valida'])){
 								</div>';
 							}
 						}
+						$test = new medico();
+						$oi = $test->todosMedicos();
+						pr($oi);die;
 					?>
 					<h1 class="page-header">
 						Dashboard

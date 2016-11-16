@@ -2,7 +2,7 @@
 include_once "functions.php";
 	// global $con = mysql_connect("academico.glaubercosta.com:3306","eduardo_lopes","130300001");
 	
-	class Médico{
+	class medico{
 		
 		var $idMedico;
 		var $crm;
@@ -10,19 +10,19 @@ include_once "functions.php";
 		var $idUsuario;
 		
 		// $dados - array contendo as variáveis para preenchimento da classe
-		function Médico($dados){
+		/*function medico($dados){
 			
 			$this->crm 	 			 = $dados[0];
 			$this->especialidade 	 = $dados[1];
-		}
+		}*/
 		
-		function insereMédico($dados){
+		function insereMedico($dados){
 			
 			$this->crm 	 			 = $dados[0];
 			$this->especialidade 	 = $dados[1];
 			$this->idUsuario 		 = $dados[2];
 			
-			$sql = "INSERT INTO Médico
+			$sql = "INSERT INTO medico
 					('crm','especialidade','idUsuario')
 					VALUES
 					('this->crm','$this->especialidade','$this->idUsuario')";
@@ -31,22 +31,22 @@ include_once "functions.php";
 			return (1);	
 		}
 		
-		function deletaMédico($idMedico){
+		function deletaMedico($idMedico){
 			
-			$sql ="DELETE FROM Médico WHERE $idMedico = $idMedico";
+			$sql ="DELETE FROM medico WHERE $idMedico = $idMedico";
 			
 			$result = mysql_query($sql);
 			return (1);
 		}
 		
-		function pesquisaMédico($idMedico){
+		function pesquisaMedico($idMedico){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
+			$sql ="SELECT * FROM medico WHERE idMedico = $idMedico";
 			
-			$sql ="SELECT * FROM Médico WHERE $idMedico = $idMedico";
+			$result = $mysqli->query($sql);
 			
-			$result = mysql_query($sql);
-			
-			if(mysql_num_rows($result) !=0){
-				$dados = $result->fetchRow();
+			if(mysqli_num_rows($result) !=0){
+				$dados = $result->fetch_array();
 				$this->$idMedico   			  = $dados[0];
 				$this->crm		  			  = $dados[1];
 				$this->especialidade		  = $dados[2];
@@ -56,19 +56,35 @@ include_once "functions.php";
 			else return (0);
 		}
 		
-		function alteraMédico($idMedico, $dados){
+		function alteraMedico($idMedico, $dados){
 			
 			$crm		  		  = $dados[0];
 			$especialidade		  = $dados[1];
 			$idUsuario    		  = $dados[2];
 			
-			$sql ="UPDATE Médico SET ('crm','especialidade','idUsuario') VALUES ('$crm', '$especialidade', '$idUsuario') WHERE $idMedico";
+			$sql ="UPDATE Medico SET ('crm','especialidade','idUsuario') VALUES ('$crm', '$especialidade', '$idUsuario') WHERE $idMedico";
 			
 			$result = mysql_query($sql);
 			
 			if(mysql_num_rows($result) !=0){
 				return (1);
 			}
+		}
+		
+		function todosMedicos(){
+			$mysqli = new mysqli('localhost', 'root', '','sumc');
+			
+			$sql="SELECT idMedico FROM medico WHERE 1";
+			
+			$result = $mysqli->query($sql);
+			$i=0;
+			while ($row = $result->fetch_array()) {
+				$medico = new medico();
+				$medico->pesquisaMedico($row['idMedico']);
+				$vet[$i] = $medico;
+				$i++;
+			}
+			return $vet;
 		}
 	}
 ?>
